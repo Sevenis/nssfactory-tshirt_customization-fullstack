@@ -1,0 +1,35 @@
+:root{
+    $blue: #3490dc;
+    $indigo: #6574cd;
+    $purple: #9561e2;
+    $pink: #f66d9b;
+    $red: #e3342f;
+    $orange: #f6993f;
+    $yellow: #ffed4a;
+    $green: #38c172;
+    $teal: #4dc0b5;
+    $cyan: #6cb2eb;
+    --turcoise: rgb(0,166,153);
+    --pink-sev: rgb(255,90,95);
+
+    //height width
+    --footer-height:15rem;
+    --nav-height:8rem;
+
+    //color font-
+    --color-font-black:#222222;
+
+    //buttons
+    --button-color-black: #343a40;
+    --button-color-white: #fff;
+    --button-color-hover:#F7F7F7;
+    --gradient-color:radial-gradient(circle at left center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
+
+    //form
+    --form-radius:1.1rem;
+    --margin-big:5rem;
+    --margin-small:1.5rem;
+}
+
+
+

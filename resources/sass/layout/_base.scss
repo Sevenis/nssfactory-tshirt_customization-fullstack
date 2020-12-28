@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Montserrat", sans-serif;
+}
+button {
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+button:active {
+  outline: none;
+  border: none;
+}
+
+main {
+  min-height: calc(100vh - (var(--footer-height) + var(--nav-height)));
+  @include flex(column, center, center);
+  width: 100%;
+  overflow-y:auto;
+//   padding-bottom: 4rem;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.active{
+  display: block;
+}
+form{
+  box-shadow: none;
+  border-color: none;
+  background-color:none;
+  outline: none;
+}

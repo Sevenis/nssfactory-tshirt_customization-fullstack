@@ -1,0 +1,176 @@
+.nav {
+    @include flex(row, space-between, center);
+    height: --nav-height;
+    font-size: 1.4rem;
+    background-color: inherit;
+
+    &-link {
+        width: 100%;
+        height: 100%;
+        @include flex(row, center, center);
+    }
+    &-container {
+        z-index: 20;
+        position: sticky;
+        top: 0;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+        padding: 1rem 0;
+    }
+
+    &__logo {
+        flex: 1;
+        @include flex(row, flex-start, center);
+
+        & img {
+            height: 3.2rem;
+            cursor: pointer;
+        }
+    }
+
+    &__user {
+        flex: 1;
+        @include flex(row, flex-end, center);
+        position: relative;
+
+        &-box {
+            @include flex(row-reverse, space-between, center);
+            transition: all 0.2s;
+            background-color: #fff;
+            border: 1px solid #e2e2e2;
+            padding: .5rem;
+            font-size: 2rem;
+            border-radius: 10rem;
+            height: 4.2rem;
+            cursor: pointer;
+
+            &:hover {
+                border: 1px solid transparent;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+            }
+        }
+
+        &-button {
+            @include flex(row, center, center);
+            height: 4.2rem;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            width: 3.2rem;
+            height: 3.2rem;
+            border: 1px solid #e2e2e2;
+            cursor: pointer;
+            background-color: #717171;
+            box-sizing: border-box;
+            z-index: 3;
+            position: relative;
+            overflow: hidden;
+            margin-left: 2rem;
+
+            & img {
+                height: 3rem;
+            }
+        }
+        &__menu {
+            @include flex(column, flex-start, flex-start);
+            position: absolute;
+            top: 110%;
+            background-color: #fff;
+            list-style: none;
+            padding-top: 0.5rem;
+            padding-bottom: 3rem;
+            border-radius: 1.5rem;
+            width: 20rem;
+            padding: 1.5rem;
+            display: none;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+
+            &-item {
+                @include flex(row, center, center);
+                flex: 1;
+                padding: 0.6rem 0;
+                position: relative;
+                width: 100%;
+                margin-bottom: 0.2rem;
+                cursor: pointer;
+                border-bottom: 1px solid rgb(118, 118, 118);
+                border-top: 1px solid rgb(118, 118, 118);
+
+                &:hover {
+                    border-bottom: 1px solid rgb(255, 90, 95);
+                    border-top: 1px solid rgb(255, 90, 95);
+                }
+
+                &::before {
+                    content: "";
+                    left: 0;
+                    position: absolute;
+                    width: 0.5%;
+                    height: 100%;
+                    background-color: rgb(118, 118, 118);
+                    z-index: 1;
+                    transition: all 0.2s;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    width: 0.5%;
+                    height: 100%;
+                    background-color: rgb(118, 118, 118);
+                    z-index: 1;
+                    transition: all 0.2s;
+                }
+
+                &:hover::before {
+                    width: 50%;
+                    background-color: rgb(255, 90, 95);
+                }
+                &:hover::after {
+                    width: 50%;
+                    background-color: rgb(255, 90, 95);
+                }
+
+                & a {
+                    color: var(--color-font-black);
+                    text-decoration: none;
+                    z-index: 2;
+                }
+
+                &:hover .nav-link{
+                    color: #fff;
+                }
+
+                & .dot {
+                    color: rgb(255, 90, 95);
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    font-size: 70%;
+                    z-index: 2;
+
+
+                }
+
+                &:hover .dot{
+                    color: #fff;
+                }
+            }
+        }
+    }
+    &-full{
+        height:var(--nav-height);
+        padding:.6rem 2.4rem;
+    }
+}
+
+.user-greetings{
+    margin-bottom:1.2rem;
+    text-align:center;
+}
+
+#logout-form{
+    display: none;
+}

@@ -1,0 +1,31 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@100;400;500;700&display=swap');
+
+// Variables
+@import 'variables';
+
+
+// abstract
+@import 'abstract/mixins';
+@import 'abstract/var';
+
+//base
+@import 'layout/base';
+
+
+// layout
+@import 'layout/grid';
+@import 'layout/footer';
+@import 'layout/navigation';
+
+//pages
+@import 'logged/home';
+@import 'logged/create';
+@import 'logged/projects';
+
+
+//animations
+@import 'animations/animations';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

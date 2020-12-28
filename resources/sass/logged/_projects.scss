@@ -1,0 +1,68 @@
+.head {
+    @include flex(column, center, center);
+    font-size: 2rem;
+    padding: 2rem 0;
+
+    .title {
+        font-size: 3rem;
+    }
+
+    a.create-project-link {
+        color: var(--color-font-black);
+        text-decoration: none;
+    }
+
+    a.create-project-link:hover{
+        color: #ff5a5f;
+    }
+}
+
+.projects-list {
+    width: 100%;
+    height: 100%;
+    overflow-y:auto;
+    @include flex(column,flex-start, center);
+    margin-bottom:2rem;
+    border-bottom: 1px solid lightgrey;
+}
+
+.project-info {
+    width: 100%;
+    @include flex(row, space-between, center);
+    border: 1px solid black;
+    border-radius: 1.1rem;
+    margin-top: 2rem;
+    padding: 0 2rem;
+
+    .project-img {
+        width: 10rem;
+        border-radius: 1.1rem
+    }
+
+    .project-info-dx {
+        @include flex(column,center,center);
+        width: 90%;
+
+        .project-title p{
+            font-size: 2rem;
+        }
+
+        .project-details {
+            width: 100%;
+            font-size: 1.2rem;
+            @include flex(row, space-around ,center);
+        }
+    }
+
+    .project-menu {
+        @include flex(column,space-around,center);
+
+        .btn-delete, .btn-edit {
+            font-size: 1.6rem;
+        }
+        .btn-delete:hover, .btn-edit:hover{
+            color: var(--pink-sev);
+        }
+    }
+
+}
