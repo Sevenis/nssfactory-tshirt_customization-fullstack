@@ -5,7 +5,7 @@
         @if (session('status'))
             <p class="status-msg">{{ session('status') }}</p>
         @endif
-
+        {{-- se ci sono dei progetti salvati --}}
         @if (count($projects) > 0)
             <div class="head">
                 <h2 class="title">I tuoi progetti</h2>
@@ -27,6 +27,7 @@
                                 <p class="pj-info"><strong>T-Shirt: </strong> {{ $project->tshirt == 'black.png' ? "Nera" : ($project->tshirt == 'red.png' ? "Rossa" : "Bianca")  }}</p>
                                 <p class="pj-info"><strong>Logo: </strong> {{ $project->logo == 'happy.png' ? "Happy Smile" : ($project->logo == 'sad.png' ? "Sad Smile" : "Puzzled Smile")  }}</p>
                                 <p class="pj-info"><strong>Created at: </strong> {{ $project->created_at }}</p>
+                                {{-- Se Admin, sui progetti altrui viene anche riportato il proprietario. --}}
                                 @if ($project->user->id != Auth::id())
                                     <p class="owner"><strong>Created by:</strong> {{ $project->user->name . ' ' . $project->user->lastname }}</p>
                                 @endif
@@ -47,13 +48,11 @@
                 @endforeach
             </div>
         @else
+        {{-- Se non ci sono ancora progetti --}}
             <div class="head">
                 <h2 class="title">Non hai ancora registrato un progetto</h2>
                 <a class="create-project-link" href="{{ route('user.create') }}">Crea un nuovo progetto!</a>
             </div>
         @endif
-
-
     </div>
-
 @endsection

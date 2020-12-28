@@ -12,7 +12,6 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\DB;
 
 use App\Project;
-use App\User;
 use App\Img;
 
 class ProjectController extends Controller
@@ -31,10 +30,9 @@ class ProjectController extends Controller
     public function index()
     {
         if ((Auth::user()->role->role) == "admin") {
-
-            $projects = Project::get();
-            // Se utente semplice visualizza solo i propri progetti
-
+        // se utente admin visualizza tutti i progetti
+        $projects = Project::get();
+        // Se utente semplice visualizza solo i propri progetti
         } elseif ((Auth::user()->role->role) == "user") {
             $projects = Project::where('projects.user_id', '=', Auth::id())->get();
         }
@@ -300,9 +298,11 @@ class ProjectController extends Controller
 
     public function destroy($id)
     {
-        $path = Auth::user()->lastname . $id;
+        // elimina project dal DB
         DB::table('projects')->where('id', '=', $id)->delete();
 
+        // cancella la directory e i files associati al progetto
+        $path = Auth::user()->lastname . $id;
         Storage::deleteDirectory('public/images/'.$path);
         return redirect()->back()->with('status', 'Hai eliminato il progetto');
 
