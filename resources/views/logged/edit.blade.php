@@ -10,7 +10,7 @@
             @method("PATCH")
         <div class="input-row">
             {{-- <label for="title">Modifica il nome del tuo nuovo progetto!</label> --}}
-            <input type="text" id="titolo" name="title" value= "{{ $project->title }}" required>
+            <input type="text" id="titolo" name="title" minlength="6" value= "{{ $project->title }}" required>
 
             <input type="submit" name="upload" value="Conferma!" class="btn text-light bg-dark">
         </div>

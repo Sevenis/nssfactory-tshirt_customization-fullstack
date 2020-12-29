@@ -105,8 +105,9 @@ class ProjectController extends Controller
         $path = Auth::user()->lastname . $project->id ;
         $name_file = 'full';
         $type = '.png';
+        // salvataggio dell'img nella directory dedicata al progetto il cui nome è dato da cognome + id progetto
         Storage::put('public/images/' . $path .'/' . $name_file . $type, $img->encode());
-
+        // inserimento nel db
         Img::insert(
             [
                 'created_at' => Carbon::now(),
@@ -127,8 +128,10 @@ class ProjectController extends Controller
         $path = Auth::user()->lastname . $project->id ;
         $name_file = 'mid';
         $type = '.png';
-        Storage::put('public/images/' . $path .'/' . $name_file . $type, $img->encode());
 
+        // salvataggio dell'img nella directory dedicata al progetto il cui nome è dato da cognome + id progetto
+        Storage::put('public/images/' . $path .'/' . $name_file . $type, $img->encode());
+        // inserimento nel db
         Img::insert(
             [
                 'created_at' => Carbon::now(),
@@ -149,8 +152,10 @@ class ProjectController extends Controller
         $path = Auth::user()->lastname . $project->id ;
         $name_file = 'thumbnail';
         $type = '.png';
-        Storage::put('public/images/' . $path .'/' . $name_file . $type, $img->encode());
 
+        // salvataggio dell'img nella directory dedicata al progetto il cui nome è dato da cognome + id progetto
+        Storage::put('public/images/' . $path .'/' . $name_file . $type, $img->encode());
+        // inserimento nel db
         Img::insert(
             [
                 'created_at' => Carbon::now(),
@@ -159,7 +164,10 @@ class ProjectController extends Controller
             ]
         );
 
+        // salvataggio di un file txt contente il titolo del progetto nella directory dedicata
         Storage::disk('local')->put(('public/images/' . $path . '/progetto.txt'), $project->title);
+
+
         return redirect()->route('user.index')->with('status', 'Hai creato correttamente il tuo progetto "' . $project->title . '"');
     }
 
@@ -195,7 +203,9 @@ class ProjectController extends Controller
         ];
 
         $project = Project::find($id);
-        if ($project->user_id == Auth::id()){
+
+        //se sei admin o proprietario del progetto puoi modificare altrimenti errore!
+        if (($project->user_id == Auth::id() || (Auth::user()->role->role) == "admin")) {
             return view('logged.edit', compact('project', 'shirts', 'logos'));
         } else {
             return abort(404);
